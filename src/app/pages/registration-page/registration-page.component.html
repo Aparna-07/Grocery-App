@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-7 background">
+            <h1 class="text-center tagline">WELCOME TO THE GROCERY APP!</h1>
+            <h1 class="text-center">The one stop for all your needs</h1>
+            <img src="./assets/bg4.jpg" alt="">
+        </div>
+        <div class="col-lg-5 register">
+            <div class="register-wrapper">
+                <form #myForm="ngForm" (submit)="formSubmitted()">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <input #fname="ngModel" type="text" [class.is-invalid]="fname.invalid && fname.touched"
+                                name="fname" class="form-control" placeholder="Full name" required
+                                [(ngModel)]="userModel.firstName">
+                        </div>
+                        <small class="text-danger" [class.d-none]="fname.valid || fname.untouched"
+                            style="padding-left:2.5rem;">This is required.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            </div>
+                            <input #email="ngModel" type="email" [class.is-invalid]="email.invalid && email.touched"
+                                name="email" id="email" class="form-control" placeholder="Email" required
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="userModel.email">
+                            <div class="input-group-append">
+                                <span class="input-group-text">@abc.com</span>
+                            </div>
+                        </div>
+                        <div *ngIf="email.errors && email.touched">
+                            <small *ngIf="email.errors['required']" class="text-danger"
+                                style="padding-left:2.5rem;">This is required.</small>
+                            <small class="text-danger" *ngIf="email.errors['pattern']"
+                                style="padding-left:2.5rem;">Email is not valid.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                            </div>
+                            <input #mobile="ngModel" type="text" [class.is-invalid]="mobile.invalid && mobile.touched"
+                                name="phone" id="phone" class="form-control" placeholder="Phone" required
+                                pattern="^((\\+91-?)|0)?[0-9]{10}$" [(ngModel)]="userModel.mobile">
+                        </div>
+                        <div *ngIf="mobile.errors && mobile.touched">
+                            <small *ngIf="mobile.errors['required']" class="text-danger"
+                                style="padding-left:2.5rem;">This is required.</small>
+                            <small class="text-danger" *ngIf="mobile.errors['pattern']"
+                                style="padding-left:2.5rem;">Mobile no. should be 10 digits</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input #password="ngModel" type="password"
+                                [class.is-invalid]="password.invalid && password.touched" name="pass" id="pass"
+                                class="form-control" placeholder="Password" required minlength="6"
+                                [(ngModel)]="userModel.password">
+                        </div>
+                        <div *ngIf="password.errors && password.touched">
+                            <small *ngIf="password.errors['required']" class="text-danger"
+                                style="padding-left:2.5rem;">This is required.</small>
+                            <small class="text-danger text-justify" *ngIf="password.errors['minlength']"
+                                style="margin-left:2.5rem; display: block;">Password should be atleast 6 characters long.</small>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Register" [disabled]="myForm.invalid"
+                        class="register-btn btn btn-block btn-dark">
+                </form>
+
+                <fieldset>
+                    <legend dir="ltr"> &nbsp; Or &nbsp;</legend>
+                </fieldset>
+
+                <div class="social">
+                    <p>Register using</p>
+                    <a href="#"><i class="fab fa-google text-dark social-icon"></i></a>
+                    <a href="#"><i class="fab fa-facebook text-dark social-icon"></i></a>
+                    <a href="#"><i class="fab fa-twitter text-dark social-icon"></i></a>
+                </div>
+                <div class="signin text-center">
+                    <a routerLink="/login">Already a user? Click here!</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

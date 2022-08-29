@@ -1,0 +1,32 @@
+ .container-fluid {
+     background-color: #f6f6f2;
+     padding: 40px 20px;
+     
+ }
+
+ .card {
+     margin-top: 20px;
+     background-color: rgba(178, 178, 162, 0.3);
+ }
+
+ .card img {
+     border-radius: 1rem;
+     margin: 10px auto;
+     width: 17rem;
+     height: 12.5rem;
+ }
+
+ .card:hover{
+    background-color: rgba(178, 178, 162, 0.5);
+ }
+
+ .categories h2{
+    width: fit-content; 
+    margin: 0px auto;
+    margin-bottom: 10px;
+    color: #f6f6f2d7;
+    padding: 10px 25px;
+    clip-path:polygon(100% 0%, 93% 50%, 100% 100%, 0% 100%, 7% 50%, 0% 0%);
+    border: 5px solid rgba(178, 178, 162, 0.611);
+    font-weight: 100;
+}

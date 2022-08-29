@@ -1,0 +1,32 @@
+ .list-group{
+    margin-top: 20px;
+    border-radius: 1rem;
+   background-color: #f6f6f2
+ }
+
+ .subcat>h3{
+  padding: 20px;
+  width: fit-content;
+  margin: auto;
+  border-bottom: 1px solid rgba(178, 178, 162);
+}
+
+li a{
+  color: black;
+  font-size: 17px;
+  padding: 10px;
+  overflow-x: hidden;
+} 
+
+li a:hover{
+  text-decoration: none;
+  font-size: 18px;
+}
+
+li:hover{
+  background-color: rgba(178,178,162, 0.3);
+}
+
+a.active{
+  font-weight: bold;
+}

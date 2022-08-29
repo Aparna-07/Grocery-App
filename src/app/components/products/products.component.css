@@ -1,0 +1,43 @@
+.price {
+    font-size: 1.5rem;
+    color: red;
+}
+
+.mrp {
+    color: #999;
+    font-size: 22px;
+}
+
+.card {
+    background-color: rgba(178, 178, 162, 0.3);
+    height: fit-content;
+    box-shadow: 5px 5px 10px rgba(104, 59, 43, 0.5);
+    transition: all 0.5s ease;
+    margin: auto;
+    margin-top: 20px;
+}
+.card-title{
+    height: 43px; 
+}
+
+.card img {
+    border-radius: 1rem;
+    margin: 10px auto;
+    width: 16rem;
+}
+
+.products {
+    background-color: #f6f6f2;
+    height: 94vh;
+}
+
+.products>h3{
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+    border-bottom: 1px solid rgba(178, 178, 162);
+}
+
+.card:hover{
+    background-color: rgba(178, 178, 162, 0.5);
+ }

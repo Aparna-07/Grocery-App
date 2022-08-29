@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <i class="fas fa-seedling"></i>
+    <h3 class="brand-name">The Olive</h3>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/home' routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </li>      
+    </ul>
+
+
+    <div class="options ml-auto text-right">
+      <button><i class="fa fa-search dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></i>
+        <div class="dropdown-menu">
+          <span class="search dropdown-item">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </span>
+        </div>
+      </button>
+
+      <button><i class="fa fa-shopping-cart dropdown-toggle" data-toggle="dropdown"
+          aria-expanded="false" (click)="getCart()"></i>
+
+        <div class="dropdown-menu header-cart">
+          <div *ngIf="empty" class="dropdown-item">
+            <span>No items in the cart!</span>
+          </div>
+
+          <div [class.d-none]="empty" class="dropdown-item cart-item" *ngFor="let pdt of cart">
+            <img [src]="imagePath+pdt.image" alt="" class="img-fluid">
+            <span>
+              <a href="{{'/products/details/' + pdt._id}}">{{ pdt.productName | titlecase }}</a><br>
+              <small>Price: {{pdt.price | currency:'INR'}}</small>
+            </span>
+            <i class="fas fa-trash" (click)="removeCart(pdt)"></i>
+          </div>
+
+          <div class="dropdown-divider"></div>
+
+          <p *ngIf="!empty" class="text-center">Checkout total: <span>{{subTotal | currency:'INR'}}</span></p>
+        </div>
+
+      </button>
+      <button><i class="fa fa-user dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></i>
+        <div class="dropdown-menu">
+          <span class="login dropdown-item">
+            <div class="userProfile">
+              <div><span>Username: </span>{{ username }}</div>
+              <div><span>Email: </span>{{ email }}</div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button class="btn btn-block btn-dark" (click)="logout()">Logout</button>
+          </span>
+        </div>
+      </button>
+    </div>
+
+  </div>
+</nav>

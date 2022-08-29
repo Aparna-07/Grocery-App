@@ -1,0 +1,13 @@
+<div class="subcat">
+    <h3>{{catName}}</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a routerLink="{{'/products/'+ catId}}" [class.active]="selectedIndex==-1" (click)="subCatSelected(-1, 'All', -1)">All</a>
+        </li>
+        <li class="list-group-item" *ngFor="let subCat of subCategories; index as i">
+            <a routerLink="{{'/products/'+ catId}}"
+                (click)="subCatSelected(subCat.subId, subCat.subName, i)"
+                [class.active]="selectedIndex==i">{{subCat.subName}}</a>
+        </li>
+    </ul> 
+</div>

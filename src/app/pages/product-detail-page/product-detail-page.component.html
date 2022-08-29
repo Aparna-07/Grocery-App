@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="info-grid">
+        <div class="image card">
+            <img src={{imageUrl+pdt.image}} alt="" class="img-fluid">
+        </div>
+        <div class="content">
+            <h1>{{pdt.productName | titlecase}}</h1>
+            <div class="best-seller">
+                <small><span>Best</span> Seller</small>
+            </div>
+            <hr>
+            <div class="prices">
+                <small class="mrpprice"><del>{{pdt.mrp | currency: 'INR'}}</del> </small>
+                <small class="price"> <span> {{pdt.price | currency: 'INR'}}</span></small>
+                <br>
+                <small class="saveprice">You save: <span>{{pdt.mrp - pdt.price | currency: 'INR'}} ({{((pdt.mrp -
+                        pdt.price)*100/pdt.mrp) | number: '2.0-2'}}%)</span></small>
+            </div>
+
+            <div class="icons">
+                <div>
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <small>Cash on Delivery</small>
+                </div>
+                <div>
+                    <i class="fas fa-sync-alt"></i>
+                    <small>Not returnable</small>
+                </div>
+                <div>
+                    <i class="fa fa-truck"></i>
+                    <small>Delivered at home</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <h5 *ngIf="pdt.quantity>0" style="color: green;">In Stock ({{pdt.quantity}} items)</h5>
+            <h5 *ngIf="pdt.quantity==0" style="color: red;">Out of Stock</h5>
+
+            <div class="wish-cart">
+                <button class="btn-lg cart btn-dark"><i class="fa fa-heart"></i> WishList</button>
+                <button *ngIf="!added" class="cart btn-lg btn-dark" (click)="addToCart()">Add to Cart</button>
+                <button *ngIf="added" class="cart btn-lg btn-dark" (click)="removeFromCart()">Remove from Cart</button>
+            </div>
+
+            <hr>
+
+            <div class="about">
+                <p class="title">About this product</p>
+                <p class="desc">{{pdt.description}}</p>
+            </div>
+
+        </div>
+    </div>
+</div>

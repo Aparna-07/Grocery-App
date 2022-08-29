@@ -1,0 +1,17 @@
+
+<div class="container-fluid">
+  <div class="categories" id="categories">
+    <h2 class="bg-dark">Categories</h2> 
+  </div>
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let cat of categories">
+            <div class="card" style="width: 18rem;">
+                <img [src]="imageUrl+cat.catImage" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{cat.catName}}</h5>
+                  <button (click)="categorySelected(cat.catId)" class="btn btn-dark btn-block">View items</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,20 @@
+<div class="products">
+    <h3>{{subName}} Items</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 card-wrapper" *ngFor="let pdt of products">
+            <div class="card" style="width: 18rem;">
+                <img [src]="imageUrl+pdt.image" class="card-img-top img-fluid">
+                <div class="card-body">
+                  <h4 class="card-title text-center">{{pdt.productName}}</h4>
+                  <span class="price">{{pdt.price | currency:'INR'}} 
+                    <del class="mrp">{{ pdt.mrp | currency:'INR' }}</del>
+                  </span>
+                  <p>Units: {{pdt.unit}}</p>
+                  <a class="btn btn-dark btn-block" routerLink="{{'/products/details/' + pdt._id}}">View product</a>
+                </div>
+              </div>
+        </div>
+    </div> 
+</div>
+</div>  
